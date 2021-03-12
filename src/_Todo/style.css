@@ -1,0 +1,465 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.btn {
+  outline: none !important;
+  -webkit-animation: appear 0.5s ease forwards;
+          animation: appear 0.5s ease forwards;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+#root {
+  height: 100vh;
+  padding: 15vh 0;
+  --common-width: 28%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 200px) {
+  #root {
+    --common-width: 100%;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #root {
+    --common-width: 60%;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 1152px) {
+  #root {
+    --common-width: 32%;
+    padding: 12vh 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #root {
+    --common-width: 26%;
+    padding: 15vh 0;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  #root {
+    --common-width: 20%;
+    padding: 15vh 0;
+  }
+}
+
+.container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: var(--common-width) !important;
+  height: 100%;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  padding: 10px 0;
+}
+
+header .title {
+  font-size: 20px;
+  color: #111;
+}
+
+@media only screen and (min-width: 2000px) {
+  header .title {
+    font-size: 1vw;
+  }
+}
+
+aside {
+  width: 100%;
+  height: 10%;
+  max-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ececec;
+  -webkit-animation: slide_left 1s forwards;
+          animation: slide_left 1s forwards;
+}
+
+@media only screen and (min-width: 2000px) {
+  aside {
+    max-height: 100px;
+  }
+}
+
+aside .calendar-items {
+  width: 10%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #999;
+  font-size: 11px;
+  font-weight: 500;
+  margin: 0 4px;
+  cursor: pointer;
+  -webkit-animation: slide_left 1s forwards;
+          animation: slide_left 1s forwards;
+}
+
+@media only screen and (min-width: 2000px) {
+  aside .calendar-items {
+    font-size: .6vw;
+  }
+}
+
+aside .calendar-items .list-len {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  font-size: 11px;
+  padding: 1px 6px;
+  text-align: center;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  color: rgba(0, 0, 0, 0.39);
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 2000px) {
+  aside .calendar-items .list-len {
+    font-size: .6vw;
+    padding: 1px 12px;
+  }
+}
+
+aside .calendar-items:hover:not(.mon) .list-len,
+aside .calendar-items.active .list-len {
+  background-color: #d6352a;
+  color: white;
+}
+
+aside .calendar-items:hover:not(.mon), aside .calendar-items.active {
+  background-color: #4559b3;
+  color: #f0f0f0;
+  height: 110%;
+  --radius: 5px;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+aside .calendar-items.mon {
+  color: black;
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 2000px) {
+  aside .calendar-items.mon {
+    font-size: .8vw;
+  }
+}
+
+aside .calendar-items .top,
+aside .calendar-items .bot {
+  margin: 0;
+  padding: 0;
+}
+
+aside .calendar-items .bot {
+  font-size: 13.5px;
+  line-height: 18px;
+}
+
+@media only screen and (min-width: 2000px) {
+  aside .calendar-items .bot {
+    font-size: .7vw;
+  }
+}
+
+main {
+  padding: 20px 0 0 20px;
+  width: 100%;
+  height: 100%;
+  --light-white: #ebebeb;
+  --grey: #b8b8b8;
+  --neargrey: #999999;
+  overflow: hidden;
+}
+
+main .datetime .date {
+  font-size: 17px;
+  line-height: 25px;
+}
+
+main .datetime .day {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 30px;
+  color: var(--neargrey);
+}
+
+@media only screen and (min-width: 2000px) {
+  main .datetime .day {
+    font-size: .7vw;
+  }
+}
+
+main .datetime #btn-editTodo,
+main .datetime #btn-delTodo {
+  font-size: 14px;
+  padding: 0 10px !important;
+  -webkit-animation: appear 0.5s ease forwards;
+          animation: appear 0.5s ease forwards;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .datetime #btn-editTodo,
+  main .datetime #btn-delTodo {
+    font-size: .7vw;
+    padding: 0 20px !important;
+  }
+}
+
+main .datetime #btn-cancel {
+  margin: 0;
+  -webkit-animation: appear 0.5s ease forwards;
+          animation: appear 0.5s ease forwards;
+}
+
+@media only screen and (min-width: 200px) {
+  main .datetime #btn-cancel {
+    margin-left: -5px;
+  }
+}
+
+main .error {
+  /* width: 100%; */
+  font-size: 12px;
+  margin: 5px 10px 0 0;
+  padding: 2px 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #d13535;
+  font-style: oblique;
+  font-weight: 500;
+  -webkit-animation: appear .3s forwards;
+          animation: appear .3s forwards;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .error {
+    font-size: .6vw;
+    padding: 5px 15px;
+  }
+}
+
+main .todo-list {
+  height: 90%;
+  width: 100%;
+  padding: 0px 5px 10px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .todo-list {
+    font-size: .6vw;
+  }
+}
+
+main .todo-list .todo-items .ischecked {
+  position: relative;
+  /* height: 20px; */
+}
+
+main .todo-list .todo-items .ischecked input[type="checkbox"] {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+}
+
+main .todo-list .todo-items .ischecked .checkmark {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border: 3px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+main .todo-list .todo-items .ischecked .checkmark .fa-check {
+  font-size: 8px;
+  line-height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+main .todo-list .todo-items .ischecked:hover input ~ .checkmark {
+  background-color: #5e85aa;
+}
+
+main .todo-list .todo-items .ischecked input:checked ~ .checkmark {
+  background-color: #4b4dc2;
+  -webkit-box-shadow: 0 2px 8px #4b4dc2;
+          box-shadow: 0 2px 8px #4b4dc2;
+}
+
+main .todo-list .todo-items .text-box {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px 25px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  -webkit-animation: popup 1s forwards;
+          animation: popup 1s forwards;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+main .todo-list .todo-items .text-box .content {
+  color: var(--light-white);
+  max-width: 180px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  font-style: oblique;
+}
+
+main .todo-list .todo-items .text-box .type {
+  color: var(--grey);
+  font-size: .8rem;
+  font-weight: 400;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .todo-list .todo-items .text-box .type {
+    font-size: .5vw;
+  }
+}
+
+main .todo-list .todo-items .text-box .btn-editTodo,
+main .todo-list .todo-items .text-box .btn-delTodo {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 1px 4px;
+  border-radius: 100%;
+  font-size: 12px;
+  background: none;
+  color: white;
+  background: #ecaf53;
+  cursor: pointer;
+  outline: none;
+  -webkit-animation: appear .3s forwards;
+          animation: appear .3s forwards;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .todo-list .todo-items .text-box .btn-editTodo,
+  main .todo-list .todo-items .text-box .btn-delTodo {
+    font-size: .5vw;
+    padding: 5px 8px;
+  }
+}
+
+main .todo-list .todo-items .text-box .btn-delTodo {
+  padding: 1px 5px;
+  background: #d6352a;
+}
+
+main .todo-list .todo-items .text-box .editTodo input {
+  margin: 2.5px 0;
+  padding: 0 5px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+@media only screen and (min-width: 2000px) {
+  main .todo-list .todo-items .text-box .editTodo input {
+    font-size: .7vw;
+  }
+}
+
+main .todo-list .todo-items .text-box .editTodo .btn {
+  width: 15px !important;
+  height: 15px;
+  font-size: 8px;
+  padding: 0;
+  margin: 0 1px;
+}
+
+main .todo-list .todo-items.completed .text-box .content {
+  text-decoration: line-through;
+}
+
+main .todo-list .todo-items.created .text-box {
+  background-color: var(--grey) !important;
+}
+/*# sourceMappingURL=style.css.map */
