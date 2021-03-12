@@ -1,0 +1,3 @@
+//! content    : "Visit relative houses",   |  no
+
+//! type       : "Routine",                 |  no
